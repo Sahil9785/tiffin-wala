@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>TiffinWala — Ghar Ka Swad, Aapke Dwar | Homemade Food Delivery</title>
+  
+  <!-- Mobile & PWA Web App Meta Tags -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#f25c05">
+  <meta name="apple-mobile-web-app-title" content="TiffinWala">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="TiffinWala — Homemade Food Delivered with Care ♡">
+  <meta property="og:description" content="Fresh. Hygienic. Tasty. Bringing the warmth of home to your doorstep every day.">
+  <meta property="og:image" content="assets/hero_delivery.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Outfit, Plus Jakarta Sans & Caveat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <header class="top-bar">
+    <div class="container top-bar-content">
+      <span class="promo-tag">Special Offer</span>
+      <span>🎉 <strong>₹150 OFF</strong> on your first Monthly Plan! Use code: <strong class="top-bar-highlight">GHARKASWAD</strong></span>
+      <span>•</span>
+      <span>📍 Delivering across <strong>BKBIET Campus, Pilani Hostels & PGs</strong></span>
+    </div>
+  </header>
+
+  <!-- Sticky Glassmorphic Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="brand-logo" id="nav-brand-logo">
+        <div class="tiffin-icon-wrap">
+          <!-- Custom SVG Stainless Steel 3-Tier Tiffin Box -->
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="3" width="16" height="4" rx="2" fill="#F25C05"/>
+            <path d="M12 3V1.5C12 1.22386 12.2239 1 12.5 1H19.5C19.7761 1 20 1.22386 20 1.5V3" stroke="#F25C05" stroke-width="1.5"/>
+            <rect x="5" y="8" width="22" height="6" rx="2" fill="#FFA96B" stroke="#F25C05" stroke-width="1.5"/>
+            <rect x="5" y="15" width="22" height="6" rx="2" fill="#FF8438" stroke="#F25C05" stroke-width="1.5"/>
+            <rect x="5" y="22" width="22" height="7" rx="2" fill="#F25C05" stroke="#E04E00" stroke-width="1.5"/>
+            <!-- Side Clip Handles -->
+            <path d="M4 11V26C4 27.1046 4.89543 28 6 28" stroke="#2D231E" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M28 11V26C28 27.1046 27.1046 28 26 28" stroke="#2D231E" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">
+            Tiffin<span>Wala<i class="fa-solid fa-leaf leaf-accent"></i></span>
+          </div>
+          <div class="brand-slogan">— Ghar Ka Swad, Aapke Dwar —</div>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#menu" class="nav-link">Weekly Menu</a></li>
+        <li><a href="#order-flow" class="nav-link">Order Simulator</a></li>
+        <li><a href="#pricing" class="nav-link">Plans & Pricing</a></li>
+        <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+        <li><a href="#reviews" class="nav-link">Reviews</a></li>
+        <li class="nav-my-orders-item" id="nav-my-orders-mobile" style="display: none;"><a href="javascript:void(0)" onclick="openOrdersModal()" class="nav-link"><i class="fa-solid fa-clock-rotate-left"></i> My Orders</a></li>
+      </ul>
+
+      <!-- Nav Action Buttons -->
+      <div class="nav-actions">
+        <div class="campus-badge">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Pilani Campus</span>
+        </div>
+
+        <!-- Google Auth Container (Rendered via Firebase) -->
+        <div id="nav-auth-container">
+          <button class="btn-google-auth" id="btn-google-signin" onclick="triggerGoogleSignIn()">
+            <svg class="google-icon-svg" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+            <span>Sign In</span>
+          </button>
+        </div>
+
+        <button class="btn-primary" id="btn-nav-order" onclick="openOrderModal(1)">
+          <span>Order Now</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <button class="btn-mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       HERO SECTION (Replicating Image 1)
+       ========================================================================== -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      
+      <!-- Left Content Column -->
+      <div class="hero-content">
+        
+        <div class="hero-tagline-top handwritten">
+          <span>Fresh</span> • <span>Healthy</span> • <span>Homemade</span>
+        </div>
+
+        <h1 class="hero-title">
+          Homemade Food <br>
+          <span class="title-highlight">Delivered with Care</span>
+          <span class="heart-handwritten">♡</span>
+        </h1>
+
+        <p class="hero-desc">
+          Fresh. Hygienic. Tasty. Our tiffins bring the warmth of mom's cooking straight to your doorstep, every single day with fresh roti, sabzi, dal & aromatic rice.
+        </p>
+
+        <!-- 4 Key Value Pillars (Exact match to Image 1) -->
+        <div class="hero-features-grid">
+          
+          <div class="hero-feature-item">
+            <div class="hero-feature-icon icon-leaf">
+              <i class="fa-solid fa-seedling"></i>
+            </div>
+            <div class="hero-feature-title">Fresh<br>Ingredients</div>
+          </div>
+
+          <div class="hero-feature-item">
+            <div class="hero-feature-icon icon-home">
+              <i class="fa-solid fa-house-chimney"></i>
+            </div>
+            <div class="hero-feature-title">Homemade<br>Taste</div>
+          </div>
+
+          <div class="hero-feature-item">
+            <div class="hero-feature-icon icon-shield">
+              <i class="fa-solid fa-shield-heart"></i>
+            </div>
+            <div class="hero-feature-title">Hygienic<br>& Safe</div>
+          </div>
+
+          <div class="hero-feature-item">
+            <div class="hero-feature-icon icon-heart">
+              <i class="fa-solid fa-clock-rotate-left"></i>
+            </div>
+            <div class="hero-feature-title">On-Time<br>Delivery</div>
+          </div>
+
+        </div>
+
+        <!-- CTA Action Buttons -->
+        <div class="hero-cta-row">
+          <button class="btn-primary hero-order-btn" onclick="openOrderModal(1)">
+            <span>Order Now</span>
+            <i class="fa-solid fa-arrow-right arrow-icon"></i>
+          </button>
+          <a href="#menu" class="btn-secondary">
+            <i class="fa-solid fa-utensils"></i>
+            <span>View Today's Menu</span>
+          </a>
+        </div>
+
+        <!-- Live Kitchen Status -->
+        <div class="hero-live-indicator">
+          <span class="live-dot"></span>
+          <span><strong>Hot Meals Live:</strong> Dispatching Lunch (12:00 PM - 2:00 PM)</span>
+        </div>
+
+      </div>
+
+      <!-- Right Media Column (Real Photo & Floating Badges) -->
+      <div class="hero-media-wrap">
+        <div class="hero-image-card">
+          <img src="assets/hero_delivery.jpg" alt="TiffinWala delivery partner delivering hot stainless steel tiffin box to student at doorstep">
+          
+          <!-- Floating Handwritten Mood Badge -->
+          <div class="floating-badge-mood">
+            <i class="fa-solid fa-heart" style="color: #f25c05;"></i>
+            <span class="mood-text">Good Food • Good Mood ♡</span>
+          </div>
+
+          <!-- Floating Student Rating Card (Dynamic real ratings from verified customers) -->
+          <div class="floating-card-rating">
+            <div class="student-avatar" style="width: 40px; height: 40px; font-size: 0.9rem;" id="hero-rating-avatar">★</div>
+            <div>
+              <div class="rating-stars" id="hero-stars-display">☆☆☆☆☆</div>
+              <div class="rating-score"><span id="hero-avg-rating">0.0</span> / 5 Rating</div>
+              <div class="rating-sub"><span id="hero-review-count">0</span> Real Customer Reviews</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       INTERACTIVE 8-STEP ORDERING & MEAL CUSTOMIZATION (Replicating Image 2)
+       ========================================================================== -->
+  <section class="order-experience-section" id="order-flow">
+    <div class="container">
+      
+      <div class="section-header-center">
+        <div class="section-eyebrow">
+          <i class="fa-solid fa-mobile-screen-button"></i>
+          <span>Interactive App Walkthrough</span>
+        </div>
+        <h2 class="section-title">The Complete TiffinWala Experience</h2>
+        <p class="section-subtitle">Experience how seamless it is to customize your daily meal, select your plan, and track your tiffin in real time.</p>
+      </div>
+
+      <div class="app-flow-wrapper">
+        
+        <!-- Interactive Smartphone Frame -->
+        <div class="device-container">
+          <div class="device-screen">
+            <div class="device-notch"></div>
+            
+            <!-- App Navigation Bar Inside Phone -->
+            <div class="device-app-header">
+              <div class="device-header-left">
+                <button id="phone-btn-back" onclick="navigateStep(-1)" style="font-size: 0.9rem; color: #2d231e;">
+                  <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <div class="brand-title" style="font-size: 1.15rem;">
+                  Tiffin<span>Wala</span>
+                </div>
+              </div>
+              <div style="font-size: 1.1rem; color: #2d231e;">
+                <i class="fa-solid fa-bars"></i>
+              </div>
+            </div>
+
+            <!-- Device Body Screens -->
+            <div class="device-app-body" id="device-app-body">
+              
+              <!-- STEP 1: Location Confirmed -->
+              <div class="app-step-screen active" id="app-screen-1">
+                <div class="location-step-wrap">
+                  <div class="location-marker-anim">
+                    <i class="fa-solid fa-location-dot"></i>
+                  </div>
+                  <h4 class="screen-headline">Location Confirmed!</h4>
+                  <p class="screen-subtext">We will deliver your delicious tiffin at this address.</p>
+
+                  <div class="location-address-box">
+                    <i class="fa-solid fa-house-user address-icon"></i>
+                    <div class="address-details">
+                      <h5 id="live-user-name">Sahil Jangir</h5>
+                      <p id="live-user-address">B.K. Birla Institute of Engineering and Technology, Pilani, Rajasthan 333031</p>
+                    </div>
+                    <span class="address-edit-link" onclick="editAddressPrompt()">Edit</span>
+                  </div>
+
+                  <img src="assets/scooter_delivery.jpg" class="location-scene-img" alt="Delivery illustration">
+
+                  <div class="handwritten" style="font-size: 1.1rem; color: #f25c05; margin: 4px 0;">
+                    Fresh Food Coming Soon! ♡
+                  </div>
+
+                  <button class="app-btn-continue" onclick="navigateStep(1)">
+                    <span>Continue</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- STEP 2: Choose Tiffin Plan -->
+              <div class="app-step-screen" id="app-screen-2">
+                <h4 class="screen-headline">Choose Your Tiffin Plan</h4>
+                <p class="screen-subtext">Fresh meals. Healthy life. Choose what works best for you.</p>
+
+                <div class="plans-list">
+                  
+                  <div class="plan-card-item selected" onclick="selectAppPlan('daily', 70)" id="plan-opt-daily">
+                    <img src="assets/thali_classic.jpg" class="plan-icon-thumb" alt="Daily Tiffin">
+                    <div class="plan-info">
+                      <div class="plan-title">Daily Tiffin</div>
+                      <div class="plan-meta">1 Meal / Day</div>
+                    </div>
+                    <div class="plan-price-tag">₹70<span style="font-size: 0.7rem; font-weight: normal; color: #63574e;">/day</span></div>
+                    <div class="radio-check"></div>
+                  </div>
+
+                  <div class="plan-card-item" onclick="selectAppPlan('weekly', 65)" id="plan-opt-weekly">
+                    <img src="assets/thali_special.jpg" class="plan-icon-thumb" alt="Weekly Plan">
+                    <div class="plan-info">
+                      <div class="plan-title">Weekly Plan</div>
+                      <div class="plan-meta">7 Meals</div>
+                    </div>
+                    <div class="plan-price-tag">₹65<span style="font-size: 0.7rem; font-weight: normal; color: #63574e;">/day</span></div>
+                    <div class="radio-check"></div>
+                  </div>
+
+                  <div class="plan-card-item" onclick="selectAppPlan('monthly', 60)" id="plan-opt-monthly">
+                    <span class="best-value-badge">Best Value for You ♡</span>
+                    <img src="assets/thali_classic.jpg" class="plan-icon-thumb" alt="Monthly Plan">
+                    <div class="plan-info">
+                      <div class="plan-title">Monthly Plan</div>
+                      <div class="plan-meta">30 Meals</div>
+                    </div>
+                    <div class="plan-price-tag">₹60<span style="font-size: 0.7rem; font-weight: normal; color: #63574e;">/day</span></div>
+                    <div class="radio-check"></div>
+                  </div>
+
+                </div>
+
+                <div class="handwritten" style="text-align: center; color: #f25c05; margin: 12px 0 6px;">
+                  Best Value for You ♡
+                </div>
+
+                <button class="app-btn-continue" onclick="navigateStep(1)">
+                  <span>Next</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+
+              <!-- STEP 3: Build Your Tiffin (Manual Food Items Selection) -->
+              <div class="app-step-screen" id="app-screen-3">
+                <h4 class="screen-headline">Build Your Tiffin</h4>
+                <p class="screen-subtext">Choose your favorite homemade dishes & portion sizes.</p>
+
+                <div class="tiffin-builder-container" id="tiffin-builder-mount">
+                  <!-- Injected dynamically via app.js from TIFFIN_CONFIG -->
+                </div>
+
+                <!-- Live Tiffin Selection Summary Banner -->
+                <div class="live-tiffin-summary-banner" id="live-tiffin-banner">
+                  <div class="live-summary-header">
+                    <span class="live-summary-title">Your Tiffin</span>
+                    <span class="live-summary-total-chip" id="builder-live-total">₹70</span>
+                  </div>
+                  <div class="live-summary-items-pills" id="builder-live-pills">
+                    <!-- Injected via JS -->
+                  </div>
+                </div>
+
+                <button class="app-btn-continue" onclick="proceedFromTiffinBuilder()">
+                  <span>Next: Choose Delivery Time</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+
+              <!-- STEP 4: Choose Delivery Time -->
+              <div class="app-step-screen" id="app-screen-4">
+                <h4 class="screen-headline">Choose Delivery Time</h4>
+                <p class="screen-subtext">When would you like to receive your tiffin?</p>
+
+                <div class="time-slot-options">
+                  
+                  <div class="time-slot-card selected" onclick="selectTimeSlot('lunch')" id="slot-lunch">
+                    <div class="time-icon-box">
+                      <i class="fa-solid fa-sun"></i>
+                    </div>
+                    <div class="time-slot-info">
+                      <h5>Lunch</h5>
+                      <p>12:00 PM – 2:00 PM</p>
+                    </div>
+                    <div class="radio-check" style="margin-left: auto;"></div>
+                  </div>
+
+                  <div class="time-slot-card" onclick="selectTimeSlot('dinner')" id="slot-dinner">
+                    <div class="time-icon-box" style="background: #ede7f6; color: #512da8;">
+                      <i class="fa-solid fa-moon"></i>
+                    </div>
+                    <div class="time-slot-info">
+                      <h5>Dinner</h5>
+                      <p>7:00 PM – 9:00 PM</p>
+                    </div>
+                    <div class="radio-check" style="margin-left: auto;"></div>
+                  </div>
+
+                  <div class="time-slot-card" onclick="selectTimeSlot('both')" id="slot-both">
+                    <div class="time-icon-box" style="background: #e8f5e9; color: #2e7d32;">
+                      <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <div class="time-slot-info">
+                      <h5>Both (Lunch + Dinner)</h5>
+                      <p>12-2 PM & 7-9 PM</p>
+                    </div>
+                    <div class="radio-check" style="margin-left: auto;"></div>
+                  </div>
+
+                </div>
+
+                <div class="hot-delivery-promise">
+                  <i class="fa-solid fa-truck-fast"></i>
+                  <span>We deliver fresh and hot, right on time!</span>
+                </div>
+
+                <div class="handwritten" style="text-align: center; color: #f25c05; margin: 12px 0 6px;">
+                  Tasty & Healthy ♡
+                </div>
+
+                <button class="app-btn-continue" onclick="navigateStep(1)">
+                  <span>Next</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+
+              <!-- STEP 5: Order Summary -->
+              <div class="app-step-screen" id="app-screen-5">
+                <h4 class="screen-headline">Order Summary</h4>
+                <p class="screen-subtext">Review your customized meal details before payment</p>
+
+                <div class="summary-block">
+                  
+                  <!-- Customer Details -->
+                  <div class="summary-row">
+                    <div class="summary-label"><i class="fa-solid fa-user"></i> Customer</div>
+                    <div class="summary-val" id="summary-customer-name">Sahil Jangir</div>
+                  </div>
+
+                  <!-- Delivery Location -->
+                  <div class="summary-row" style="margin-top: 6px;">
+                    <div class="summary-label"><i class="fa-solid fa-location-dot"></i> Delivery Address</div>
+                    <span class="address-edit-link" onclick="openLocationModal()">Change</span>
+                  </div>
+                  <div style="font-size: 0.74rem; color: #63574e; margin-top: -4px; line-height: 1.3;" id="summary-address-text">
+                    BKBIET Campus, Pilani, Rajasthan
+                  </div>
+
+                  <!-- Tiffin Customization -->
+                  <div class="summary-row" style="margin-top: 8px;">
+                    <div class="summary-label"><i class="fa-solid fa-utensils"></i> Tiffin Items</div>
+                    <span class="address-edit-link" onclick="navigateStepTo(3)">Edit Tiffin</span>
+                  </div>
+                  <div id="summary-tiffin-items-breakdown" style="font-size: 0.75rem; color: #2d231e; background: #fff8f3; padding: 8px 10px; border-radius: 6px; border: 1px solid rgba(242, 92, 5, 0.2); margin-top: -2px; display: flex; flex-direction: column; gap: 3px;">
+                    <div><strong>Dal:</strong> <span id="summary-dal-val">Dal Tadka</span></div>
+                    <div><strong>Sabzi:</strong> <span id="summary-sabzi-val">Aloo Gobi</span></div>
+                    <div><strong>Rice:</strong> <span id="summary-rice-val">Jeera Rice</span></div>
+                    <div><strong>Roti:</strong> <span id="summary-roti-val">3 Roti</span></div>
+                    <div><strong>Salad:</strong> <span id="summary-salad-val">Regular Salad</span></div>
+                    <div id="summary-extras-row"><strong>Extras:</strong> <span id="summary-extras-val">None</span></div>
+                  </div>
+
+                  <!-- Quantity -->
+                  <div class="summary-row" style="margin-top: 8px;">
+                    <div class="summary-label"><i class="fa-solid fa-boxes-stacked"></i> Quantity</div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <span class="summary-val" id="summary-quantity-val">1 Tiffin</span>
+                      <span class="address-edit-link" onclick="navigateStepTo(3)">Change</span>
+                    </div>
+                  </div>
+
+                  <!-- Delivery Time -->
+                  <div class="summary-row">
+                    <div class="summary-label"><i class="fa-regular fa-clock"></i> Delivery Time</div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <span class="summary-val" id="summary-time-text">Lunch (12:00 PM – 2:00 PM)</span>
+                      <span class="address-edit-link" onclick="navigateStepTo(4)">Change</span>
+                    </div>
+                  </div>
+
+                  <!-- Live Pricing Breakdown -->
+                  <div style="border-top: 1px dashed var(--border-light); margin-top: 8px; padding-top: 8px; font-size: 0.74rem; color: #63574e; display: flex; flex-direction: column; gap: 4px;">
+                    <div style="display: flex; justify-content: space-between;">
+                      <span>Food Subtotal (per tiffin):</span>
+                      <span id="summary-base-price">₹70</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                      <span>Extras:</span>
+                      <span id="summary-extras-price">₹0</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                      <span>Quantity:</span>
+                      <span id="summary-qty-multiplier">× 1</span>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="total-amount-box">
+                  <div class="total-title">Total Amount</div>
+                  <div class="total-price" id="summary-total-price">₹70</div>
+                </div>
+
+                <div class="secure-badge" style="margin: 8px 0;">
+                  <i class="fa-solid fa-shield-halved"></i>
+                  <span>100% Safe & Secure Ordering</span>
+                </div>
+
+                <button class="app-btn-continue" onclick="navigateStep(1)">
+                  <span>Proceed to Payment</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+
+              <!-- STEP 6: Choose Payment Method -->
+              <div class="app-step-screen" id="app-screen-6">
+                <h4 class="screen-headline">Choose Payment Method</h4>
+                <p class="screen-subtext">Select your preferred payment option</p>
+
+                <div class="payment-methods-list">
+                  
+                  <!-- Cash on Delivery (COD) -->
+                  <div class="payment-method-card selected" onclick="selectPaymentMethod('cod')" id="pay-opt-cod">
+                    <div class="payment-logo-icon" style="color: #2e7d32; background: #e8f5e9;">
+                      <i class="fa-solid fa-money-bill-wave"></i>
+                    </div>
+                    <div class="payment-details">
+                      <h5>Cash on Delivery</h5>
+                      <p>Pay when your food is delivered.</p>
+                    </div>
+                    <div class="radio-check" style="margin-left: auto;"></div>
+                  </div>
+
+                  <!-- UPI / Online Payment (Razorpay) -->
+                  <div class="payment-method-card" onclick="selectPaymentMethod('upi')" id="pay-opt-upi">
+                    <div class="payment-logo-icon" style="color: #0c2340; background: #e8f0fe;">
+                      <i class="fa-solid fa-qrcode"></i>
+                    </div>
+                    <div class="payment-details">
+                      <h5>UPI / QR / Online Payment</h5>
+                      <p>Razorpay Checkout (UPI QR, GPay, PhonePe, Paytm, Cards)</p>
+                    </div>
+                    <div class="radio-check" style="margin-left: auto;"></div>
+                  </div>
+
+                </div>
+
+                <!-- Contextual Payment Info Box -->
+                <div id="payment-method-info-box" style="margin-top: 12px; padding: 10px 12px; background: #fdfbf9; border: 1.5px dashed var(--border-light); border-radius: var(--radius-sm); font-size: 0.76rem; color: #4a5568;">
+                  <div id="info-cod-text">
+                    <i class="fa-solid fa-circle-check" style="color: #2e7d32; margin-right: 4px;"></i>
+                    <strong>Pay when your food is delivered.</strong> Cash or UPI accepted at your doorstep.
+                  </div>
+                  <div id="info-upi-text" style="display: none;">
+                    <i class="fa-solid fa-shield-halved" style="color: #0c2340; margin-right: 4px;"></i>
+                    <strong>Razorpay Test Mode:</strong> Pay instantly using UPI QR code scan, UPI Apps (GPay, PhonePe, Paytm), Cards or NetBanking. Order is confirmed only upon successful verification.
+                  </div>
+                </div>
+
+                <div class="secure-badge" style="margin: 10px 0;">
+                  <i class="fa-solid fa-lock"></i>
+                  <span>Your order information is 100% secure</span>
+                </div>
+
+                <button class="app-btn-continue" onclick="executeMockPayment()">
+                  <span id="btn-pay-text">Place Order</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+
+              <!-- STEP 7: Order Placed! -->
+              <div class="app-step-screen" id="app-screen-7">
+                <div class="order-success-screen">
+                  <div class="success-check-circle">
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+                  <h4 class="screen-headline" style="font-size: 1.35rem;">Order Placed Successfully! 🎉</h4>
+                  <p class="screen-subtext">Your fresh & hot homemade tiffin is confirmed.</p>
+
+                  <div class="order-id-badge">
+                    <span>Order ID: </span><strong id="confirmed-order-id">#TW20260927123</strong>
+                  </div>
+
+                  <!-- Live Order Details Breakdown -->
+                  <div class="success-details-card">
+                    <div class="success-detail-row">
+                      <span><i class="fa-solid fa-credit-card"></i> Payment:</span>
+                      <strong id="confirmed-payment-status">COD</strong>
+                    </div>
+                    <div class="success-detail-row">
+                      <span><i class="fa-solid fa-utensils"></i> Tiffin:</span>
+                      <strong id="confirmed-meal-text">Dal Tadka, Aloo Gobi, Jeera Rice, 3 Roti, Regular Salad</strong>
+                    </div>
+                    <div class="success-detail-row">
+                      <span><i class="fa-solid fa-boxes-stacked"></i> Quantity:</span>
+                      <strong id="confirmed-qty-text">1 Tiffin</strong>
+                    </div>
+                    <div class="success-detail-row">
+                      <span><i class="fa-solid fa-location-dot"></i> Delivery:</span>
+                      <strong id="confirmed-address-text">BKBIET Campus, Pilani</strong>
+                    </div>
+                    <div class="success-detail-row">
+                      <span><i class="fa-regular fa-clock"></i> Delivery Time:</span>
+                      <strong id="confirmed-time-slot">12:00 PM – 2:00 PM</strong>
+                    </div>
+                    <div class="success-detail-row">
+                      <span><i class="fa-solid fa-indian-rupee-sign"></i> Total:</span>
+                      <strong style="color: var(--primary);" id="confirmed-price-text">₹70</strong>
+                    </div>
+                    <div class="success-detail-row">
+                      <span><i class="fa-solid fa-shield-heart"></i> Status:</span>
+                      <span class="order-status-badge status-confirmed" id="confirmed-status-badge">Confirmed</span>
+                    </div>
+                  </div>
+
+                  <div class="success-actions-row">
+                    <button class="app-btn-continue" style="margin-bottom: 4px;" onclick="navigateStep(1)">
+                      <i class="fa-solid fa-location-crosshairs"></i>
+                      <span>Track Order</span>
+                    </button>
+
+                    <button class="btn-primary" style="width: 100%; justify-content: center; padding: 10px; margin-bottom: 4px; font-size: 0.88rem;" onclick="openOrdersModal()">
+                      <i class="fa-solid fa-clock-rotate-left"></i>
+                      <span>My Orders</span>
+                    </button>
+
+                    <button class="btn-secondary" style="width: 100%; justify-content: center; padding: 10px; font-size: 0.88rem;" onclick="navigateStepTo(1)">
+                      <i class="fa-solid fa-house"></i>
+                      <span>Continue Shopping</span>
+                    </button>
+                  </div>
+
+                  <div class="handwritten" style="font-size: 1.15rem; color: #f25c05; margin-top: 14px;">
+                    Thank you for choosing TiffinWala ♡
+                  </div>
+                </div>
+              </div>
+
+              <!-- STEP 8: Track Your Order -->
+              <div class="app-step-screen" id="app-screen-8">
+                <div class="tracking-step-wrap">
+                  <h4 class="screen-headline">Track Your Order</h4>
+                  <p class="screen-subtext">Real-time updates, until it reaches you.</p>
+
+                  <div class="tracking-timeline">
+                    
+                    <div class="timeline-event completed">
+                      <div class="timeline-marker"><i class="fa-solid fa-check"></i></div>
+                      <div class="timeline-content">
+                        <h5>Order Confirmed</h5>
+                        <div class="time-stamp">10:15 AM</div>
+                      </div>
+                    </div>
+
+                    <div class="timeline-event completed">
+                      <div class="timeline-marker"><i class="fa-solid fa-fire-burner"></i></div>
+                      <div class="timeline-content">
+                        <h5>Food Being Prepared</h5>
+                        <div class="time-stamp">10:35 AM • Steaming fresh</div>
+                      </div>
+                    </div>
+
+                    <div class="timeline-event active">
+                      <div class="timeline-marker"><i class="fa-solid fa-motorcycle"></i></div>
+                      <div class="timeline-content">
+                        <h5 style="color: #f25c05;">Out for Delivery</h5>
+                        <div class="time-stamp">11:20 AM • Rajesh Kumar (Rider)</div>
+                      </div>
+                    </div>
+
+                    <div class="timeline-event">
+                      <div class="timeline-marker"><i class="fa-solid fa-box"></i></div>
+                      <div class="timeline-content">
+                        <h5>Delivered</h5>
+                        <div class="time-stamp">Est. 12:15 PM</div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <!-- Live Map Card -->
+                  <div class="live-delivery-map-card">
+                    <img src="assets/scooter_delivery.jpg" alt="Rider navigation map">
+                    <div class="live-rider-chip">
+                      <i class="fa-solid fa-person-biking"></i> Rider is 1.2 km away • Almost There! ♡
+                    </div>
+                  </div>
+
+                  <div style="font-size: 0.7rem; color: #718096; text-align: center; margin-top: 4px;">
+                    📍 Live location will be shared once your order is out for delivery.
+                  </div>
+
+                  <button class="btn-primary" style="margin-top: 6px; padding: 10px; font-size: 0.85rem; justify-content: center;" onclick="simulateRiderCall()">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>Call Delivery Partner</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Flow Controller & Deep Dive Explanation Panel -->
+        <div class="flow-steps-control">
+          
+          <h3 style="font-size: 1.5rem; margin-bottom: 8px;">Order Flow Navigator</h3>
+          <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 20px;">
+            Click through any of the 8 steps below to inspect how the TiffinWala user experience functions from address selection to live tracking:
+          </p>
+
+          <!-- 8 Step Navigation Pills (Exact match to Image 2) -->
+          <div class="steps-pills-nav">
+            
+            <button class="step-pill-btn active" id="pill-step-1" onclick="navigateStepTo(1)">
+              <span class="pill-num">Step 1</span>
+              <span class="pill-name">1. Location Confirmed</span>
+            </button>
+
+            <button class="step-pill-btn" id="pill-step-2" onclick="navigateStepTo(2)">
+              <span class="pill-num">Step 2</span>
+              <span class="pill-name">2. Choose Tiffin Plan</span>
+            </button>
+
+            <button class="step-pill-btn" id="pill-step-3" onclick="navigateStepTo(3)">
+              <span class="pill-num">Step 3</span>
+              <span class="pill-name">3. Customize Your Meal</span>
+            </button>
+
+            <button class="step-pill-btn" id="pill-step-4" onclick="navigateStepTo(4)">
+              <span class="pill-num">Step 4</span>
+              <span class="pill-name">4. Choose Delivery Time</span>
+            </button>
+
+            <button class="step-pill-btn" id="pill-step-5" onclick="navigateStepTo(5)">
+              <span class="pill-num">Step 5</span>
+              <span class="pill-name">5. Order Summary</span>
+            </button>
+
+            <button class="step-pill-btn" id="pill-step-6" onclick="navigateStepTo(6)">
+              <span class="pill-num">Step 6</span>
+              <span class="pill-name">6. Payment Options</span>
+            </button>
+
+            <button class="step-pill-btn" id="pill-step-7" onclick="navigateStepTo(7)">
+              <span class="pill-num">Step 7</span>
+              <span class="pill-name">7. Order Placed</span>
+            </button>
+
+            <button class="step-pill-btn" id="pill-step-8" onclick="navigateStepTo(8)">
+              <span class="pill-num">Step 8</span>
+              <span class="pill-name">8. Track Order</span>
+            </button>
+
+          </div>
+
+          <!-- Dynamic Feature Explanation -->
+          <div class="step-explanation-card" id="step-explanation-box">
+            <div class="step-explanation-header">
+              <h4 class="step-explanation-title" id="exp-title">1. Smart Location Pinning</h4>
+              <span class="step-tip" id="exp-tip">Fresh Food Coming Soon! ♡</span>
+            </div>
+            <p id="exp-desc" style="color: var(--text-secondary); font-size: 0.95rem;">
+              Students and residents can pin their hostel room or campus building for direct doorstep delivery with zero phone calls or confusion.
+            </p>
+            <ul class="step-feature-list" id="exp-list">
+              <li><span class="check-icon">✓</span> Automatic hostel and room number routing</li>
+              <li><span class="check-icon">✓</span> Saved addresses for 1-tap reordering</li>
+              <li><span class="check-icon">✓</span> Contactless handoff option</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       WEEKLY TIFFIN MENU (Exact Match to Image 3)
+       ========================================================================== -->
+  <section class="weekly-menu-section" id="menu">
+    <div class="container">
+      
+      <div class="section-header-center">
+        <div class="section-eyebrow">
+          <span>Fresh</span> • <span>Healthy</span> • <span>Homemade</span>
+        </div>
+        <h2 class="section-title">Weekly Tiffin Menu</h2>
+        <p class="section-subtitle handwritten" style="font-size: 1.4rem; color: #f25c05;">
+          Simple food. Big happiness. Every day. ♡
+        </p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="menu-filter-bar">
+        <button class="day-filter-btn active" data-day="all" onclick="filterMenuDays('all', this)">All Days</button>
+        <button class="day-filter-btn" data-day="sat" onclick="filterMenuDays('sat', this)">Saturday</button>
+        <button class="day-filter-btn" data-day="sun" onclick="filterMenuDays('sun', this)">Sunday</button>
+        <button class="day-filter-btn" data-day="mon" onclick="filterMenuDays('mon', this)">Monday</button>
+        <button class="day-filter-btn" data-day="tue" onclick="filterMenuDays('tue', this)">Tuesday</button>
+        <button class="day-filter-btn" data-day="wed" onclick="filterMenuDays('wed', this)">Wednesday</button>
+        <button class="day-filter-btn" data-day="thu" onclick="filterMenuDays('thu', this)">Thursday</button>
+        <button class="day-filter-btn" data-day="fri" onclick="filterMenuDays('fri', this)">Friday</button>
+      </div>
+
+      <!-- 7 Days Menu Cards Grid (Exact content from Image 3) -->
+      <div class="menu-grid" id="weekly-menu-grid">
+        
+        <!-- Saturday -->
+        <div class="menu-day-card" data-day-item="sat">
+          <div class="menu-card-header">
+            <span class="day-tag tag-sat">Saturday</span>
+            <span class="day-theme-title">Classic Comfort</span>
+          </div>
+          <div class="menu-card-body">
+            <ul class="dish-items-list">
+              <li class="dish-item"><span class="dish-bullet">🍚</span> Jeera Rice</li>
+              <li class="dish-item"><span class="dish-bullet">🍲</span> Dal Tadka</li>
+              <li class="dish-item"><span class="dish-bullet">🥔</span> Aloo Gobi</li>
+              <li class="dish-item"><span class="dish-bullet">🫓</span> Roti (2)</li>
+              <li class="dish-item"><span class="dish-bullet">🥗</span> Fresh Salad</li>
+            </ul>
+            <div class="menu-dish-preview">
+              <img src="assets/thali_classic.jpg" alt="Saturday Classic Comfort Thali">
+            </div>
+          </div>
+          <div class="menu-card-footer">
+            <span class="menu-sticker">~ Desi Goodness ~</span>
+            <button class="btn-order-day" onclick="orderDaySpecific('Saturday')">Order This Meal</button>
+          </div>
+        </div>
+
+        <!-- Sunday -->
+        <div class="menu-day-card" data-day-item="sun">
+          <div class="menu-card-header">
+            <span class="day-tag tag-sun">Sunday</span>
+            <span class="day-theme-title">Special Sunday Treat</span>
+          </div>
+          <div class="menu-card-body">
+            <ul class="dish-items-list">
+              <li class="dish-item"><span class="dish-bullet">🍚</span> Veg Pulao</li>
+              <li class="dish-item"><span class="dish-bullet">🍲</span> Punjabi Rajma</li>
+              <li class="dish-item"><span class="dish-bullet">🥦</span> Mix Veg Sabzi</li>
+              <li class="dish-item"><span class="dish-bullet">🫓</span> Roti (2)</li>
+              <li class="dish-item"><span class="dish-bullet">🥗</span> Fresh Salad</li>
+            </ul>
+            <div class="menu-dish-preview">
+              <img src="assets/thali_special.jpg" alt="Sunday Special Rajma Treat Thali">
+            </div>
+          </div>
+          <div class="menu-card-footer">
+            <span class="menu-sticker">~ Full of Flavour ♡ ~</span>
+            <button class="btn-order-day" onclick="orderDaySpecific('Sunday')">Order This Meal</button>
+          </div>
+        </div>
+
+        <!-- Monday -->
+        <div class="menu-day-card" data-day-item="mon">
+          <div class="menu-card-header">
+            <span class="day-tag tag-mon">Monday</span>
+            <span class="day-theme-title">Healthy & Tasty</span>
+          </div>
+          <div class="menu-card-body">
+            <ul class="dish-items-list">
+              <li class="dish-item"><span class="dish-bullet">🍲</span> Moong Dal Khichdi</li>
+              <li class="dish-item"><span class="dish-bullet">🥣</span> Gujarati Kadhi</li>
+              <li class="dish-item"><span class="dish-bullet">🥒</span> Lauki Sabzi</li>
+              <li class="dish-item"><span class="dish-bullet">🫓</span> Roti (2)</li>
+              <li class="dish-item"><span class="dish-bullet">🥗</span> Fresh Salad</li>
+            </ul>
+            <div class="menu-dish-preview">
+              <img src="assets/thali_classic.jpg" alt="Monday Healthy Khichdi & Kadhi">
+            </div>
+          </div>
+          <div class="menu-card-footer">
+            <span class="menu-sticker">~ Light & Healthy ♡ ~</span>
+            <button class="btn-order-day" onclick="orderDaySpecific('Monday')">Order This Meal</button>
+          </div>
+        </div>
+
+        <!-- Tuesday -->
+        <div class="menu-day-card" data-day-item="tue">
+          <div class="menu-card-header">
+            <span class="day-tag tag-tue">Tuesday</span>
+            <span class="day-theme-title">Desi Flavours</span>
+          </div>
+          <div class="menu-card-body">
+            <ul class="dish-items-list">
+              <li class="dish-item"><span class="dish-bullet">🍚</span> Steamed Basmati Rice</li>
+              <li class="dish-item"><span class="dish-bullet">🍲</span> Dal Fry (Ghee Tadka)</li>
+              <li class="dish-item"><span class="dish-bullet">🍆</span> Baingan Bharta</li>
+              <li class="dish-item"><span class="dish-bullet">🫓</span> Roti (2)</li>
+              <li class="dish-item"><span class="dish-bullet">🥗</span> Fresh Salad</li>
+            </ul>
+            <div class="menu-dish-preview">
+              <img src="assets/thali_special.jpg" alt="Tuesday Desi Flavours">
+            </div>
+          </div>
+          <div class="menu-card-footer">
+            <span class="menu-sticker">~ Pure Homemade ~</span>
+            <button class="btn-order-day" onclick="orderDaySpecific('Tuesday')">Order This Meal</button>
+          </div>
+        </div>
+
+        <!-- Wednesday -->
+        <div class="menu-day-card" data-day-item="wed">
+          <div class="menu-card-header">
+            <span class="day-tag tag-wed">Wednesday</span>
+            <span class="day-theme-title">Wholesome & Simple</span>
+          </div>
+          <div class="menu-card-body">
+            <ul class="dish-items-list">
+              <li class="dish-item"><span class="dish-bullet">🍚</span> Jeera Rice</li>
+              <li class="dish-item"><span class="dish-bullet">🥘</span> Amritsari Chole</li>
+              <li class="dish-item"><span class="dish-bullet">🥬</span> Palak Paneer</li>
+              <li class="dish-item"><span class="dish-bullet">🫓</span> Roti (2)</li>
+              <li class="dish-item"><span class="dish-bullet">🥗</span> Fresh Salad</li>
+            </ul>
+            <div class="menu-dish-preview">
+              <img src="assets/thali_classic.jpg" alt="Wednesday Palak Paneer & Chole">
+            </div>
+          </div>
+          <div class="menu-card-footer">
+            <span class="menu-sticker">~ Healthy Heart ♡ ~</span>
+            <button class="btn-order-day" onclick="orderDaySpecific('Wednesday')">Order This Meal</button>
+          </div>
+        </div>
+
+        <!-- Thursday -->
+        <div class="menu-day-card" data-day-item="thu">
+          <div class="menu-card-header">
+            <span class="day-tag tag-thu">Thursday</span>
+            <span class="day-theme-title">Rich in Taste</span>
+          </div>
+          <div class="menu-card-body">
+            <ul class="dish-items-list">
+              <li class="dish-item"><span class="dish-bullet">🍚</span> Shahi Veg Pulao</li>
+              <li class="dish-item"><span class="dish-bullet">🍲</span> Dal Makhani</li>
+              <li class="dish-item"><span class="dish-bullet">🥔</span> Aloo Matar Sabzi</li>
+              <li class="dish-item"><span class="dish-bullet">🫓</span> Roti (2)</li>
+              <li class="dish-item"><span class="dish-bullet">🥗</span> Fresh Salad</li>
+            </ul>
+            <div class="menu-dish-preview">
+              <img src="assets/thali_special.jpg" alt="Thursday Dal Makhani Feast">
+            </div>
+          </div>
+          <div class="menu-card-footer">
+            <span class="menu-sticker">~ Taste You'll Love ♡ ~</span>
+            <button class="btn-order-day" onclick="orderDaySpecific('Thursday')">Order This Meal</button>
+          </div>
+        </div>
+
+        <!-- Friday -->
+        <div class="menu-day-card" data-day-item="fri">
+          <div class="menu-card-header">
+            <span class="day-tag tag-fri">Friday</span>
+            <span class="day-theme-title">Simple & Satisfying</span>
+          </div>
+          <div class="menu-card-body">
+            <ul class="dish-items-list">
+              <li class="dish-item"><span class="dish-bullet">🍚</span> Steamed Rice</li>
+              <li class="dish-item"><span class="dish-bullet">🍲</span> South Style Sambar / Dal</li>
+              <li class="dish-item"><span class="dish-bullet">🥒</span> Crispy Bhindi Sabzi</li>
+              <li class="dish-item"><span class="dish-bullet">🫓</span> Roti (2)</li>
+              <li class="dish-item"><span class="dish-bullet">🥗</span> Fresh Salad</li>
+            </ul>
+            <div class="menu-dish-preview">
+              <img src="assets/thali_classic.jpg" alt="Friday Sambar & Bhindi">
+            </div>
+          </div>
+          <div class="menu-card-footer">
+            <span class="menu-sticker">~ Good Food Always ♡ ~</span>
+            <button class="btn-order-day" onclick="orderDaySpecific('Friday')">Order This Meal</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Fresh Meals All Week Trust Banner (Exact bottom banner from Image 3) -->
+      <div class="all-week-trust-banner">
+        <div class="trust-banner-heading">
+          <div class="tiffin-box-icon-large">
+            <i class="fa-solid fa-box-open"></i>
+          </div>
+          <div>
+            <h3>Fresh Meals All Week!</h3>
+            <p style="color: var(--text-secondary); font-size: 0.88rem;">Certified hygienic cloud kitchen in Pilani</p>
+          </div>
+        </div>
+
+        <div class="trust-banner-grid">
+          
+          <div class="trust-banner-item">
+            <div class="trust-item-icon">
+              <i class="fa-solid fa-seedling"></i>
+            </div>
+            <span>No<br>Preservatives</span>
+          </div>
+
+          <div class="trust-banner-item">
+            <div class="trust-item-icon">
+              <i class="fa-solid fa-kitchen-set"></i>
+            </div>
+            <span>Home Cooked<br>with Love</span>
+          </div>
+
+          <div class="trust-banner-item">
+            <div class="trust-item-icon">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+            <span>Balanced<br>Nutrition</span>
+          </div>
+
+          <div class="trust-banner-item">
+            <div class="trust-item-icon">
+              <i class="fa-regular fa-face-smile"></i>
+            </div>
+            <span>Happiness<br>in Every Bite</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PLANS & PRICING
+       ========================================================================== -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      
+      <div class="section-header-center">
+        <div class="section-eyebrow">
+          <i class="fa-solid fa-tags"></i>
+          <span>Affordable Meal Subscriptions</span>
+        </div>
+        <h2 class="section-title">Transparent & Student-Friendly Pricing</h2>
+        <p class="section-subtitle">No hidden fees, no plastic wastage. Cancel or pause meals whenever you visit home.</p>
+      </div>
+
+      <div class="pricing-grid">
+        
+        <!-- Daily Plan -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3 class="pricing-plan-name">Daily Tiffin</h3>
+            <p class="pricing-plan-desc">For flexible days and occasional cravings</p>
+            <div class="pricing-rate">
+              <span class="currency-sym">₹</span>
+              <span class="price-fig">70</span>
+              <span class="price-unit">/ meal</span>
+            </div>
+          </div>
+
+          <ul class="pricing-perks-list">
+            <li><span class="check">✓</span> 1 Hot Fresh Meal (Lunch or Dinner)</li>
+            <li><span class="check">✓</span> 2 Rotis + Rice + Dal + Sabzi + Salad</li>
+            <li><span class="check">✓</span> Stainless Steel Tiffin Delivery</li>
+            <li><span class="check">✓</span> Zero cancellation charges</li>
+            <li><span class="check">✓</span> Delivery included</li>
+          </ul>
+
+          <button class="btn-secondary btn-select-plan" onclick="openOrderModalWithPlan('daily', 70)">
+            <span>Choose Daily Plan</span>
+          </button>
+        </div>
+
+        <!-- Weekly Plan (Popular) -->
+        <div class="pricing-card featured">
+          <span class="popular-ribbon">⭐ Most Popular</span>
+          <div class="pricing-header">
+            <h3 class="pricing-plan-name">Weekly Plan</h3>
+            <p class="pricing-plan-desc">7 consecutive days of warm home taste</p>
+            <div class="pricing-rate">
+              <span class="currency-sym">₹</span>
+              <span class="price-fig">65</span>
+              <span class="price-unit">/ meal (₹455/wk)</span>
+            </div>
+          </div>
+
+          <ul class="pricing-perks-list">
+            <li><span class="check">✓</span> 7 Wholesome Meals included</li>
+            <li><span class="check">✓</span> Full access to daily rotating menu</li>
+            <li><span class="check">✓</span> Pause meals up to 2 times a week</li>
+            <li><span class="check">✓</span> Free dessert on Sunday special!</li>
+            <li><span class="check">✓</span> Priority hostel room delivery</li>
+          </ul>
+
+          <button class="btn-primary btn-select-plan" onclick="openOrderModalWithPlan('weekly', 65)">
+            <span>Choose Weekly Plan</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- Monthly Plan (Best Value) -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3 class="pricing-plan-name">Monthly Plan</h3>
+            <p class="pricing-plan-desc">Best value for college students & locals</p>
+            <div class="pricing-rate">
+              <span class="currency-sym">₹</span>
+              <span class="price-fig">60</span>
+              <span class="price-unit">/ meal (₹1,800/mo)</span>
+            </div>
+          </div>
+
+          <ul class="pricing-perks-list">
+            <li><span class="check">✓</span> 30 Fresh Meals per month</li>
+            <li><span class="check">✓</span> <strong>Save ₹300/month</strong> vs daily orders</li>
+            <li><span class="check">✓</span> Unlimited meal pause for exam/holidays</li>
+            <li><span class="check">✓</span> 2 Free Curd / Dessert add-ons per week</li>
+            <li><span class="check">✓</span> Dedicated WhatsApp support manager</li>
+          </ul>
+
+          <button class="btn-secondary btn-select-plan" onclick="openOrderModalWithPlan('monthly', 60)">
+            <span>Choose Monthly Plan</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Interactive Savings Calculator -->
+      <div class="calculator-card">
+        <div>
+          <h3 class="calc-title">💡 How much will you save with TiffinWala?</h3>
+          <p style="color: var(--text-secondary); font-size: 0.92rem;">
+            Calculate your monthly food budget savings compared to expensive canteen food or restaurant ordering:
+          </p>
+
+          <div class="calc-controls">
+            <div class="calc-group">
+              <label for="calc-meals-slider">Meals per day: <strong id="calc-meals-label" style="color: #f25c05;">1 Meal (Lunch)</strong></label>
+              <input type="range" id="calc-meals-slider" min="1" max="2" value="1" class="calc-slider" oninput="recalcSavings()">
+            </div>
+
+            <div class="calc-group">
+              <label for="calc-days-slider">Days per week: <strong id="calc-days-label" style="color: #f25c05;">6 Days</strong></label>
+              <input type="range" id="calc-days-slider" min="1" max="7" value="6" class="calc-slider" oninput="recalcSavings()">
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-result-box">
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Your Estimated Monthly Savings</div>
+          <div class="calc-savings-fig" id="calc-savings-val">₹2,160</div>
+          <div style="font-size: 0.8rem; color: #2e7d32; font-weight: 700;">+ 100% healthier digestion & energy!</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       HOW IT WORKS (The Eco-Friendly Tiffin Cycle)
+       ========================================================================== -->
+  <section class="how-it-works-section" id="how-it-works">
+    <div class="container">
+      
+      <div class="section-header-center">
+        <div class="section-eyebrow">
+          <i class="fa-solid fa-arrows-rotate"></i>
+          <span>Zero-Plastic Eco-Friendly Cycle</span>
+        </div>
+        <h2 class="section-title">How TiffinWala Works</h2>
+        <p class="section-subtitle">Enjoy hot, nutritious meals every day with our signature stainless steel circular system.</p>
+      </div>
+
+      <div class="steps-cards-grid">
+        
+        <div class="hiw-step-card">
+          <span class="hiw-step-num">1</span>
+          <div class="hiw-icon-wrap">
+            <i class="fa-solid fa-sliders"></i>
+          </div>
+          <h4 class="hiw-title">Choose Plan & Diet</h4>
+          <p class="hiw-desc">Select daily, weekly, or monthly plan. Customize your roti, rice, sabzi quantities and choose Veg, Jain, or Non-Veg.</p>
+        </div>
+
+        <div class="hiw-step-card">
+          <span class="hiw-step-num">2</span>
+          <div class="hiw-icon-wrap">
+            <i class="fa-solid fa-fire-burner"></i>
+          </div>
+          <h4 class="hiw-title">Freshly Cooked</h4>
+          <p class="hiw-desc">Our experienced home chefs prepare meals each morning with cold-pressed oils and farm fresh produce.</p>
+        </div>
+
+        <div class="hiw-step-card">
+          <span class="hiw-step-num">3</span>
+          <div class="hiw-icon-wrap">
+            <i class="fa-solid fa-motorcycle"></i>
+          </div>
+          <h4 class="hiw-title">Doorstep Delivery</h4>
+          <p class="hiw-desc">Delivered hot in insulated carrying bags right to your hostel room or flat in time for lunch or dinner.</p>
+        </div>
+
+        <div class="hiw-step-card">
+          <span class="hiw-step-num">4</span>
+          <div class="hiw-icon-wrap">
+            <i class="fa-solid fa-recycle"></i>
+          </div>
+          <h4 class="hiw-title">Clean Tiffin Swap</h4>
+          <p class="hiw-desc">Hand back yesterday's cleaned stainless steel tiffin upon receiving the new meal. Zero single-use plastic!</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CUSTOMER REVIEWS & SOCIAL PROOF (Real Customer Reviews from Firestore)
+       ========================================================================== -->
+  <section class="customer-reviews-section" id="reviews">
+    <div class="container">
+      
+      <div class="section-header-center">
+        <div class="section-eyebrow">
+          <span>Real Customers</span> • <span>Real Experience ♡</span>
+        </div>
+        <div class="handwritten" style="font-size: 1.5rem; color: #f25c05; margin-bottom: 4px;">
+          Authentic Feedback
+        </div>
+        <h2 class="section-title">Customer Reviews</h2>
+        <p class="section-subtitle">
+          Real ratings and feedback submitted directly by verified customers after experiencing their meals.
+        </p>
+      </div>
+
+      <!-- Real-time Live Review Stats Bar & Write Review CTA -->
+      <div class="reviews-header-bar">
+        <div class="reviews-score-summary">
+          <div class="reviews-avg-number" id="reviews-avg-rating">0.0</div>
+          <div>
+            <div class="reviews-stars-visual" id="reviews-stars-visual">☆☆☆☆☆</div>
+            <div class="reviews-count-text">Based on <strong id="reviews-count-badge">0</strong> real customer reviews</div>
+          </div>
+        </div>
+
+        <button class="btn-primary" id="btn-write-review" onclick="openReviewModal()">
+          <i class="fa-solid fa-pen-to-square"></i>
+          <span>Write a Customer Review</span>
+        </button>
+      </div>
+
+      <!-- Real Customer Reviews Grid Container (Rendered dynamically from Firestore reviews collection) -->
+      <div class="reviews-grid" id="reviews-list-container">
+        <!-- Default initial empty state when reviewCount = 0 -->
+        <div class="reviews-empty-state">
+          <div class="reviews-empty-icon">
+            <i class="fa-regular fa-comment-dots"></i>
+          </div>
+          <h4 class="reviews-empty-title">No Reviews Yet</h4>
+          <p class="reviews-empty-subtext">
+            Start the journey with us! Place an order and be the first customer to share your homemade food review.
+          </p>
+          <button class="btn-primary" onclick="openReviewModal()">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <span>Write the First Review</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Verified Homemade Food Values (Replacing fake numeric statistics) -->
+      <div class="trust-pillars-bar">
+        
+        <div class="trust-pillar-card">
+          <div class="trust-pillar-icon" style="background: #fff3e0; color: #f25c05;">
+            <i class="fa-solid fa-fire-burner"></i>
+          </div>
+          <div>
+            <div class="trust-pillar-title">100% Homemade</div>
+            <div class="trust-pillar-desc">Freshly prepared daily with cold-pressed oils & pure spices.</div>
+          </div>
+        </div>
+
+        <div class="trust-pillar-card">
+          <div class="trust-pillar-icon" style="background: #e8f5e9; color: #2e7d32;">
+            <i class="fa-solid fa-seedling"></i>
+          </div>
+          <div>
+            <div class="trust-pillar-title">Zero Preservatives</div>
+            <div class="trust-pillar-desc">No soda, artificial colors, or MSG. Pure health & nutrition.</div>
+          </div>
+        </div>
+
+        <div class="trust-pillar-card">
+          <div class="trust-pillar-icon" style="background: #e3f2fd; color: #1565c0;">
+            <i class="fa-solid fa-box-open"></i>
+          </div>
+          <div>
+            <div class="trust-pillar-title">Stainless Steel Dabba</div>
+            <div class="trust-pillar-desc">Eco-friendly sanitized metal containers. Zero plastic waste.</div>
+          </div>
+        </div>
+
+        <div class="trust-pillar-card">
+          <div class="trust-pillar-icon" style="background: #fce4ec; color: #c2185b;">
+            <i class="fa-solid fa-motorcycle"></i>
+          </div>
+          <div>
+            <div class="trust-pillar-title">Doorstep Delivery</div>
+            <div class="trust-pillar-desc">Delivered hot & on-time to BKBIET campus & Pilani hostels.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Community Message -->
+      <div style="text-align: center; margin-top: 40px;">
+        <div class="handwritten" style="font-size: 1.3rem; color: #f25c05; margin-bottom: 4px;">
+          Ghar Ka Swad, Aapke Dwar ♡
+        </div>
+        <h3 style="font-size: 1.8rem; font-weight: 800; color: #2b1f1a; margin-bottom: 6px;">
+          Good Food. Better Days.
+        </h3>
+        <p class="handwritten" style="font-size: 1.4rem; color: #63574e;">
+          "Thank you for trusting TiffinWala!" ♡
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FAQ ACCORDION
+       ========================================================================== -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      
+      <div class="section-header-center">
+        <div class="section-eyebrow">
+          <i class="fa-regular fa-circle-question"></i>
+          <span>Got Questions?</span>
+        </div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Everything you need to know about our tiffin service in Pilani</p>
+      </div>
+
+      <div class="faq-accordion">
+        
+        <div class="faq-item open">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <span>Can I pause my weekly or monthly subscription when visiting home?</span>
+            <i class="fa-solid fa-chevron-down faq-toggle-icon"></i>
+          </div>
+          <div class="faq-body">
+            Yes, absolutely! You can pause your subscription with just 1-click on WhatsApp or via your dashboard at least 2 hours before the delivery slot. Your missed days will be automatically rolled forward.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <span>What are the delivery timings for BKBIET and college hostels?</span>
+            <i class="fa-solid fa-chevron-down faq-toggle-icon"></i>
+          </div>
+          <div class="faq-body">
+            Lunch is delivered between 12:00 PM and 2:00 PM (sharp at hostel mess/gates), and Dinner is delivered between 7:00 PM and 9:00 PM. Hot and fresh guarantee!
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <span>Do you offer pure Jain / No Onion & Garlic meals?</span>
+            <i class="fa-solid fa-chevron-down faq-toggle-icon"></i>
+          </div>
+          <div class="faq-body">
+            Yes! We prepare separate Jain meals in a dedicated cookware setup with zero onion, garlic, or root vegetables. You can simply select the "Jain" preference tab when ordering.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <span>How does the stainless steel tiffin swap work?</span>
+            <i class="fa-solid fa-chevron-down faq-toggle-icon"></i>
+          </div>
+          <div class="faq-body">
+            To eliminate single-use plastic waste, your food comes in sanitized 3-tier stainless steel containers. When the delivery rider arrives with your next meal, simply hand back yesterday's washed tiffin box.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      
+      <div class="footer-grid">
+        
+        <!-- Brand Info -->
+        <div class="footer-brand">
+          <div class="brand-logo" style="margin-bottom: 12px;">
+            <div class="tiffin-icon-wrap" style="background: #332924; border-color: rgba(242, 92, 5, 0.4);">
+              <i class="fa-solid fa-box" style="color: #f25c05; font-size: 1.2rem;"></i>
+            </div>
+            <div class="brand-text">
+              <div class="brand-title" style="color: #ffffff;">
+                Tiffin<span style="color: #f25c05;">Wala</span>
+              </div>
+              <div class="brand-slogan" style="color: #a89a8f;">Ghar Ka Swad, Aapke Dwar</div>
+            </div>
+          </div>
+          <p class="footer-desc">
+            Bringing authentic, healthy, and warm homemade Indian meals to students and working professionals across Pilani with certified hygiene and zero plastic waste.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#menu">Weekly Menu</a></li>
+            <li><a href="#order-flow">Interactive Order Demo</a></li>
+            <li><a href="#pricing">Plans & Pricing</a></li>
+            <li><a href="#reviews">Student Reviews</a></li>
+          </ul>
+        </div>
+
+        <!-- Menu Days -->
+        <div class="footer-col">
+          <h4>Weekly Highlights</h4>
+          <ul class="footer-links">
+            <li><a href="#menu">Saturday: Dal Tadka</a></li>
+            <li><a href="#menu">Sunday: Special Rajma</a></li>
+            <li><a href="#menu">Wednesday: Palak Paneer</a></li>
+            <li><a href="#menu">Thursday: Dal Makhani</a></li>
+            <li><a href="#menu">Friday: Sambar & Bhindi</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact & Kitchen -->
+        <div class="footer-col">
+          <h4>Kitchen & Delivery</h4>
+          <p style="font-size: 0.88rem; color: #a89a8f; margin-bottom: 10px;">
+            📍 Near BKBIET Campus Gate, Pilani, Rajasthan 333031
+          </p>
+          <p style="font-size: 0.88rem; color: #a89a8f; margin-bottom: 10px;">
+            📞 Helpline / WhatsApp: <strong>+91 98765-43210</strong>
+          </p>
+          <p style="font-size: 0.88rem; color: #38a169;">
+            🛡️ FSSAI Lic. No: <strong>22221000000000</strong>
+          </p>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 TiffinWala. Crafted with love & care for healthy everyday living.
+        </div>
+        <div style="display: flex; gap: 18px;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">FSSAI Hygiene Certificate</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       FLOATING ACTIONS & LIVE SOCIAL PROOF TOAST
+       ========================================================================== -->
+  <div class="floating-order-bar">
+    <button class="floating-track-btn" onclick="openOrderModal(8)">
+      <i class="fa-solid fa-location-crosshairs"></i>
+      <span>Track Order</span>
+    </button>
+    <button class="floating-order-btn" onclick="openOrderModal(1)">
+      <i class="fa-solid fa-utensils"></i>
+      <span>Order Tiffin</span>
+    </button>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL: FULLSCREEN ORDER & SUBSCRIPTION FLOW
+       ========================================================================== -->
+  <div class="modal-overlay" id="order-modal-overlay" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-container">
+      <div class="bottom-sheet-handle" onclick="closeOrderModal()"></div>
+      <button class="modal-close-btn" onclick="closeOrderModal()" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Dynamic Modal Content Re-uses the 8-Step Flow Engine -->
+      <div id="modal-step-mount">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL: GOOGLE AUTHENTICATION MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="auth-modal-overlay" onclick="closeAuthModalOnBackdrop(event)">
+    <div class="modal-container">
+      <div class="bottom-sheet-handle" onclick="closeAuthModal()"></div>
+      <button class="modal-close-btn" onclick="closeAuthModal()" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-header-section">
+        <div class="modal-header-icon">
+          <i class="fa-solid fa-user-shield"></i>
+        </div>
+        <h3 class="modal-title">Welcome to TiffinWala</h3>
+        <p class="modal-subtitle">Sign in with Google to customize meals, save delivery address & track orders.</p>
+      </div>
+      
+      <button class="btn-google-modal" id="btn-modal-google-login" onclick="triggerGoogleSignIn()">
+        <svg class="google-icon-svg" style="width: 22px; height: 22px;" viewBox="0 0 24 24">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+        </svg>
+        <span>Continue with Google</span>
+      </button>
+
+      <div class="auth-security-notice">
+        <i class="fa-solid fa-lock" style="color: var(--secondary);"></i>
+        <span>100% Safe & Secure. No passwords required.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL: CHOOSE DELIVERY LOCATION (Current Location vs Manual Address)
+       ========================================================================== -->
+  <div class="modal-overlay" id="location-modal-overlay" onclick="closeLocationModalOnBackdrop(event)">
+    <div class="modal-container">
+      <div class="bottom-sheet-handle" onclick="closeLocationModal()"></div>
+      <button class="modal-close-btn" onclick="closeLocationModal()" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-header-section">
+        <div class="modal-header-icon">
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+        <h3 class="modal-title">Where should we deliver your food?</h3>
+        <p class="modal-subtitle">Confirm your delivery location to customize & place your order.</p>
+      </div>
+
+      <!-- Mode Switcher Tabs -->
+      <div class="loc-mode-tabs">
+        <button type="button" class="loc-tab-btn active" id="loc-tab-gps-btn" onclick="switchLocationTab('gps')">
+          <i class="fa-solid fa-location-crosshairs"></i>
+          <span>1. Use Current Location</span>
+        </button>
+        <button type="button" class="loc-tab-btn" id="loc-tab-manual-btn" onclick="switchLocationTab('manual')">
+          <i class="fa-solid fa-house"></i>
+          <span>2. Enter Manually</span>
+        </button>
+      </div>
+
+      <!-- Option 1 Panel: GPS Current Location -->
+      <div class="loc-tab-panel active" id="loc-panel-gps">
+        <div class="gps-action-wrap">
+          <p style="font-size: 0.88rem; color: var(--text-secondary); text-align: center;">
+            Allow browser location access to automatically detect your hostel or campus building.
+          </p>
+
+          <button type="button" class="btn-location-gps" id="btn-use-gps" onclick="getCurrentLocation()">
+            <i class="fa-solid fa-crosshairs"></i>
+            <span id="gps-btn-text">📍 Use Current Location</span>
+          </button>
+
+          <!-- Permission Denied Alert Box -->
+          <div class="loc-denied-alert" id="loc-denied-alert" style="display: none;">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <span>Location permission was denied. Please enter your address manually.</span>
+          </div>
+
+          <!-- Detected Location Card -->
+          <div class="detected-loc-card" id="detected-loc-card" style="display: none;">
+            <div class="detected-badge">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Location detected successfully</span>
+            </div>
+            <div class="detected-address-display" id="detected-address-text">
+              <!-- Injected via JS -->
+            </div>
+            <div class="detected-coords-text" id="detected-coords-text">
+              <!-- Injected via JS -->
+            </div>
+            <button type="button" class="btn-primary" style="width: 100%; justify-content: center; padding: 12px; margin-top: 14px;" onclick="confirmGpsLocation()">
+              <span>Confirm Location</span>
+              <i class="fa-solid fa-check"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Option 2 Panel: Manual Address Entry -->
+      <div class="loc-tab-panel" id="loc-panel-manual">
+        <form class="manual-loc-form" id="manual-loc-form" onsubmit="event.preventDefault(); confirmManualLocation();">
+          <div class="form-row-2col">
+            <div class="loc-input-group">
+              <label class="loc-field-label">House / Flat / Room No. <span class="required">*</span></label>
+              <input type="text" id="manual-house-no" class="loc-input" placeholder="e.g. Room 204, Block B" required>
+            </div>
+            <div class="loc-input-group">
+              <label class="loc-field-label">Landmark (Optional)</label>
+              <input type="text" id="manual-landmark" class="loc-input" placeholder="e.g. Near Main Gate">
+            </div>
+          </div>
+
+          <div class="loc-input-group">
+            <label class="loc-field-label">Area / Street / Campus <span class="required">*</span></label>
+            <input type="text" id="manual-area-street" class="loc-input" placeholder="e.g. BKBIET Campus / Hostel Road" required>
+          </div>
+
+          <div class="form-row-3col">
+            <div class="loc-input-group">
+              <label class="loc-field-label">City <span class="required">*</span></label>
+              <input type="text" id="manual-city" class="loc-input" value="Pilani" required>
+            </div>
+            <div class="loc-input-group">
+              <label class="loc-field-label">State <span class="required">*</span></label>
+              <input type="text" id="manual-state" class="loc-input" value="Rajasthan" required>
+            </div>
+            <div class="loc-input-group">
+              <label class="loc-field-label">Pincode <span class="required">*</span></label>
+              <input type="text" id="manual-pincode" class="loc-input" value="333031" required>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; padding: 14px; margin-top: 8px;">
+            <span>Confirm Location</span>
+            <i class="fa-solid fa-check"></i>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL: MY ORDERS & ORDER HISTORY
+       ========================================================================== -->
+  <div class="modal-overlay" id="orders-modal-overlay" onclick="closeOrdersModalOnBackdrop(event)">
+    <div class="modal-container orders-modal-container">
+      <div class="bottom-sheet-handle" onclick="closeOrdersModal()"></div>
+      <button class="modal-close-btn" onclick="closeOrdersModal()" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-header-section">
+        <div class="modal-header-icon">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+        </div>
+        <h3 class="modal-title">My Orders</h3>
+        <p class="modal-subtitle">Your active & past tiffin subscriptions</p>
+      </div>
+
+      <div class="orders-list-wrapper" id="orders-list-container">
+        <!-- Injected via JavaScript -->
+        <div class="orders-empty-state">
+          <div class="orders-empty-icon"><i class="fa-solid fa-box-open"></i></div>
+          <h4 style="margin-bottom: 6px;">No orders placed yet</h4>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 16px;">Enjoy healthy homemade food delivered right to your doorstep!</p>
+          <button class="btn-primary" onclick="closeOrdersModal(); openOrderModal(1);">
+            <span>Order Your First Tiffin</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL: SUBMIT REAL CUSTOMER REVIEW
+       ========================================================================== -->
+  <div class="modal-overlay" id="review-modal-overlay" onclick="closeReviewModalOnBackdrop(event)">
+    <div class="modal-container review-modal-container">
+      <div class="bottom-sheet-handle" onclick="closeReviewModal()"></div>
+      <button class="modal-close-btn" onclick="closeReviewModal()" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-header-section">
+        <div class="modal-header-icon">
+          <i class="fa-solid fa-star" style="color: #f59e0b;"></i>
+        </div>
+        <h3 class="modal-title">Write a Customer Review</h3>
+        <p class="modal-subtitle">Share your real experience with homemade food from TiffinWala.</p>
+      </div>
+
+      <form id="customer-review-form" onsubmit="event.preventDefault(); handleReviewSubmit();">
+        <!-- Star Rating Picker -->
+        <div class="review-form-group" style="text-align: center; margin-bottom: 18px;">
+          <label style="display: block; font-weight: 700; font-size: 0.92rem; margin-bottom: 6px;">Your Rating</label>
+          <div class="star-rating-selector" id="star-rating-selector">
+            <span class="star-picker-btn selected" data-rating="1" onclick="setReviewRating(1)">★</span>
+            <span class="star-picker-btn selected" data-rating="2" onclick="setReviewRating(2)">★</span>
+            <span class="star-picker-btn selected" data-rating="3" onclick="setReviewRating(3)">★</span>
+            <span class="star-picker-btn selected" data-rating="4" onclick="setReviewRating(4)">★</span>
+            <span class="star-picker-btn selected" data-rating="5" onclick="setReviewRating(5)">★</span>
+          </div>
+          <span class="rating-text-feedback" id="rating-text-feedback">5.0 — Excellent Homemade Food!</span>
+        </div>
+
+        <div class="review-form-group">
+          <label class="loc-field-label">Order Type / Plan</label>
+          <select id="review-plan-tag" class="loc-input">
+            <option value="Custom Tiffin Order">Custom Tiffin Order</option>
+            <option value="Daily Tiffin">Daily Tiffin</option>
+            <option value="Weekly Plan">Weekly Plan</option>
+            <option value="Monthly Plan">Monthly Plan</option>
+          </select>
+        </div>
+
+        <div class="review-form-group">
+          <label class="loc-field-label">Your Honest Feedback <span class="required">*</span></label>
+          <textarea id="review-comment" class="loc-input" rows="4" placeholder="How was the taste, hygiene, roti softness, and delivery time?" required style="resize: vertical; font-family: inherit;"></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary" id="btn-submit-review-action" style="width: 100%; justify-content: center; padding: 14px; margin-top: 10px;">
+          <span>Submit Review</span>
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       APP FEEDBACK / ALERT TOAST
+       ========================================================================== -->
+  <div class="app-alert-toast" id="app-alert-toast">
+    <div class="alert-toast-icon"><i class="fa-solid fa-circle-check"></i></div>
+    <div class="alert-toast-content">
+      <p id="app-alert-message">Action completed successfully.</p>
+    </div>
+    <div class="alert-toast-close" onclick="hideAppNotification()"><i class="fa-solid fa-xmark"></i></div>
+  </div>
+
+  <!-- ==========================================================================
+       MOBILE BOTTOM NAVIGATION BAR (Phone-first Native App Style)
+       ========================================================================== -->
+  <nav class="mobile-bottom-nav" id="mobile-bottom-nav" aria-label="Mobile Bottom Navigation">
+    <a href="#hero" class="mobile-nav-item active" id="mob-nav-home" onclick="setMobileNavActive('mob-nav-home')">
+      <div class="mobile-nav-icon"><i class="fa-solid fa-house"></i></div>
+      <span class="mobile-nav-label">Home</span>
+    </a>
+    <a href="#menu" class="mobile-nav-item" id="mob-nav-menu" onclick="setMobileNavActive('mob-nav-menu')">
+      <div class="mobile-nav-icon"><i class="fa-solid fa-utensils"></i></div>
+      <span class="mobile-nav-label">Menu</span>
+    </a>
+    <a href="javascript:void(0)" class="mobile-nav-item mobile-nav-center-action" onclick="openOrderModal(1)" aria-label="Order Tiffin Now">
+      <div class="mobile-nav-center-btn">
+        <i class="fa-solid fa-plus"></i>
+      </div>
+      <span class="mobile-nav-label center-label">Order</span>
+    </a>
+    <a href="#pricing" class="mobile-nav-item" id="mob-nav-pricing" onclick="setMobileNavActive('mob-nav-pricing')">
+      <div class="mobile-nav-icon"><i class="fa-solid fa-tags"></i></div>
+      <span class="mobile-nav-label">Plans</span>
+    </a>
+    <a href="javascript:void(0)" class="mobile-nav-item" id="mob-nav-orders" onclick="openOrdersModal(); setMobileNavActive('mob-nav-orders');">
+      <div class="mobile-nav-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+      <span class="mobile-nav-label">Orders</span>
+    </a>
+  </nav>
+
+  <!-- Razorpay Standard Checkout SDK -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+  <!-- Firebase Modular Engine (CDN) -->
+  <script type="module" src="firebase-config.js"></script>
+
+  <!-- Main JavaScript File -->
+  <script src="app.js"></script>
+</body>
+</html>

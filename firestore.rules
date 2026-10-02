@@ -1,0 +1,38 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // 1. User Profiles & Saved Locations
+    match /users/{userId} {
+      allow read, create, update: if
+        request.auth != null &&
+        request.auth.uid == userId;
+    }
+
+    // 2. Customer Orders
+    match /orders/{orderId} {
+      allow create: if
+        request.auth != null &&
+        request.resource.data.userId == request.auth.uid;
+
+      allow read: if
+        request.auth != null &&
+        resource.data.userId == request.auth.uid;
+
+      allow update: if
+        request.auth != null &&
+        resource.data.userId == request.auth.uid &&
+        request.resource.data.userId == request.auth.uid;
+    }
+
+    // 3. Customer Reviews
+    match /reviews/{reviewId} {
+      allow read: if true;
+      allow create: if
+        request.auth != null &&
+        request.resource.data.userId == request.auth.uid;
+    }
+  }
+}
+
